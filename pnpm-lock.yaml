@@ -21,6 +21,7 @@ specifiers:
   https-localhost: ^4.7.1
   markdown-it-link-attributes: ^4.0.1
   markdown-it-shiki: ^0.7.2
+  node-cache: ^5.1.2
   nprogress: ^0.2.0
   pinia: ^2.0.29
   pnpm: ^7.25.1
@@ -35,7 +36,6 @@ specifiers:
   vite-plugin-inspect: ^0.7.14
   vite-plugin-pages: ^0.28.0
   vite-plugin-pwa: ^0.14.1
-  vite-plugin-vue-component-preview: ^0.3.4
   vite-plugin-vue-inspector: ^3.2.1
   vite-plugin-vue-layouts: ^0.7.0
   vite-plugin-vue-markdown: ^0.22.2
@@ -53,6 +53,7 @@ dependencies:
   '@vueuse/core': 9.11.0_vue@3.2.45
   '@vueuse/head': 1.0.22_vue@3.2.45
   axios: 0.21.4
+  node-cache: 5.1.2
   nprogress: 0.2.0
   pinia: 2.0.29_typescript@4.9.4+vue@3.2.45
   vue: 3.2.45
@@ -89,7 +90,6 @@ devDependencies:
   vite-plugin-inspect: 0.7.14_vite@4.0.4
   vite-plugin-pages: 0.28.0_vite@4.0.4
   vite-plugin-pwa: 0.14.1_vite@4.0.4
-  vite-plugin-vue-component-preview: 0.3.4_vite@4.0.4
   vite-plugin-vue-inspector: 3.2.1_vite@4.0.4
   vite-plugin-vue-layouts: 0.7.0_71fca851de0a2c4c319121e7e0277c76
   vite-plugin-vue-markdown: 0.22.2_vite@4.0.4
@@ -3710,6 +3710,11 @@ packages:
       wrap-ansi: 7.0.0
     dev: true
 
+  /clone/2.1.2:
+    resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
+    engines: {node: '>=0.8'}
+    dev: false
+
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -6802,6 +6807,13 @@ packages:
       lower-case: 1.1.4
     dev: true
 
+  /node-cache/5.1.2:
+    resolution: {integrity: sha512-t1QzWwnk4sjLWaQAS8CHgOJ+RAfmHpxFWmc36IWTiWHQfs0w5JDMBS1b1ZxQteo0vVVuWJvIUKHDkkeK7vIGCg==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      clone: 2.1.2
+    dev: false
+
   /node-fetch-native/0.1.8:
     resolution: {integrity: sha512-ZNaury9r0NxaT2oL65GvdGDy+5PlSaHTovT6JV5tOW07k1TQmgC0olZETa4C9KZg0+6zBr99ctTYa3Utqj9P/Q==}
     dev: true
@@ -8930,16 +8942,6 @@ packages:
     transitivePeerDependencies:
       - '@types/babel__core'
       - supports-color
-    dev: true
-
-  /vite-plugin-vue-component-preview/0.3.4_vite@4.0.4:
-    resolution: {integrity: sha512-35Oy11DIe/owthbgSRSDVaIhtH1TyA7d90ibgjmfXcHdsa/1/t/Fsy6xceaQVz+10SrRFToSK4/iMFbBbA/i1Q==}
-    dependencies:
-      magic-string: 0.27.0
-      vite-plugin-vue-markdown: 0.22.2_vite@4.0.4
-    transitivePeerDependencies:
-      - rollup
-      - vite
     dev: true
 
   /vite-plugin-vue-inspector/3.2.1_vite@4.0.4:

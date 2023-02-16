@@ -3,7 +3,6 @@ const { app, router, pinia, head } = createApp(false)
 
 router.beforeResolve((to, from, next) => {
   try {
-
     next()
   }
   catch (err) {

@@ -19,6 +19,7 @@ const { t } = useI18n()
     <div text-4xl>
       <div i-carbon-campsite inline-block />
     </div>
+    <TheCounter />
     <p>
       <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
         Vitesse

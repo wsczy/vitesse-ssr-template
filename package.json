@@ -24,6 +24,7 @@
     "@vueuse/core": "^9.11.0",
     "@vueuse/head": "^1.0.22",
     "axios": "^0.21.4",
+    "node-cache": "^5.1.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.29",
     "vue": "^3.2.45",
