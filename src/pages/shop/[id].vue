@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import testApi from '~/api'
 type Await<T> = T extends Promise<infer P> ? P : T
-type Fruit = Await<ReturnType<typeof testApi.getFruit>>
+type Fruit = Await<ReturnType<typeof testApi.getFruit>>['data']
 const props = defineProps<{ id: string }>()
 
 const fruitdata = ref<Fruit>()
@@ -9,7 +9,7 @@ const fruitdata = ref<Fruit>()
 async function getFruit(id: number) {
   const res = await testApi.getFruit(id)
   if (res)
-    fruitdata.value = res
+    fruitdata.value = res.data
 }
 
 await getFruit(Number(props.id))

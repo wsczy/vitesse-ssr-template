@@ -49,6 +49,22 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
       }),
     )
   }
+  // 测试接口
+  app.use('/apitest/getfruit', async (req, res) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = [
+          { id: 1, name: '苹果', description: '可口的大苹果' },
+          { id: 2, name: '香蕉', description: '弯弯的大香蕉' },
+          { id: 3, name: '菠萝', description: '黄色的大菠萝' },
+          { id: 4, name: '葡萄', description: '紫色的小葡萄' },
+        ]
+        resolve(data.filter(item => item.id === Number(req.query.id))[0])
+      }, 2000)
+    }).then((result) => {
+      res.end(JSON.stringify(result))
+    })
+  })
 
   app.use('*', async (req, res) => {
     try {
@@ -97,8 +113,8 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
 
 if (!isTest) {
   createServer().then(({ app }) =>
-    app.listen(12345, () => {
-      console.log('http://localhost:12345')
+    app.listen(3333, () => {
+      console.log('http://localhost:3333')
     }),
   )
 }

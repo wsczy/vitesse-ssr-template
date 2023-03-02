@@ -47,6 +47,7 @@ export const server: {
 } = {
   http: {} as AxiosInstance,
   init: (config: ConnectionConfig) => {
-    return CreateAxios(config)
+    server.http = CreateAxios(config)
+    return server.http
   },
 }
