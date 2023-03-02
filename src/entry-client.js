@@ -6,12 +6,12 @@ router.beforeResolve((to, from, next) => {
     next()
   }
   catch (err) {
-    next(err as any)
+    next(err)
   }
 })
 
 if (window.__INITIAL_STATE__) {
-  // 将
+  // 获取服务端渲染阶段结束时pinia中的数据
   const base64Encoded = window.__INITIAL_STATE__
   const binaryString = atob(base64Encoded)
   const decoded = new Uint8Array(binaryString.length)

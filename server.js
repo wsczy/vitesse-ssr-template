@@ -62,11 +62,11 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
       else {
         const hasKey = webCache.has(req.baseUrl)
         if (hasKey) {
-          console.log('从缓存中获取', req.baseUrl);
+          console.log('从缓存中获取');
           [template, render] = webCache.get(req.baseUrl)
         }
         else {
-          console.log('开始渲染', req.baseUrl)
+          console.log('开始渲染')
           template = indexProd
           render = require('./server/entry-server.js').render
           webCache.set(req.baseUrl, [template, render])
@@ -74,7 +74,7 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
       }
 
       const [appHtml, state, preloadLinks, headHTML] = await render(url, { manifest, preload: true })
-
+      // 将pinia中的数据转换成base64格式传给客户端
       const buf = Buffer.from(state, 'utf8')
       const base64Encoded = buf.toString('base64')
 
