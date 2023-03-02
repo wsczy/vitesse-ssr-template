@@ -11,6 +11,11 @@ const go = () => {
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
 
+const goshop = () => {
+  if (name)
+    router.push(`/hi/${encodeURIComponent(name)}`)
+}
+
 const { t } = useI18n()
 </script>
 
@@ -47,6 +52,13 @@ const { t } = useI18n()
       >
         {{ t('button.go') }}
       </button>
+    </div>
+    <div class="w-full flex justify-center">
+      <router-link v-for="i of 4" :key="i" :to="{ name: 'shop-id', params: { id: i } }" active-class="item-active">
+        <p class="border h-20px mx-5px">
+          商品{{ i }}
+        </p>
+      </router-link>
     </div>
   </div>
 </template>
